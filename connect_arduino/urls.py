@@ -1,0 +1,10 @@
+from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+from .views import DataViewSet
+
+router = DefaultRouter()
+router.register('post', DataViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+]
