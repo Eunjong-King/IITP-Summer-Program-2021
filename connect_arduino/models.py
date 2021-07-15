@@ -9,3 +9,12 @@ class Data(models.Model):
     
     def __str__(self):
         return f'{self.device}::{self.value}'
+    
+class Device(models.Model):
+    device1 = models.NullBooleanField()
+    device2 = models.NullBooleanField()
+    device3 = models.NullBooleanField()
+    device4 = models.NullBooleanField()
+    
+    def __str__(self):
+        return f'{self.device1}|{self.device2}|{self.device3}|{self.device4}'
