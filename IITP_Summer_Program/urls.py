@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('api/', include('connect_arduino.urls')),
     path('admin/', admin.site.urls),
-    path('home/', include('webapp.urls')),
+    path('mqtt/', include('mqtt.urls'))
 ]
