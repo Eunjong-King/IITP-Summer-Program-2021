@@ -24,6 +24,7 @@
                 console.log('onConnect');
                 client.subscribe('myled1');
                 client.subscribe('myled2');
+                client.subscribe('myimage');
             }
 
             function onConnectionLost(responseObject) {
@@ -33,7 +34,7 @@
                 }
             }
 
-            function onMessageArrived(message) {
+            async function onMessageArrived(message) {
                 console.log(
                     'Message arrived: topic=' +
                         message.destinationName +
@@ -61,6 +62,18 @@
                         document.getElementById("led2").checked = false;
                     }
                 }
+                else if(message.destinationName === 'myimage'){
+                    let url = 'https://ultraman.run.goorm.io/api/image/1/';
+                    let response = await fetch(url);
+
+                    let commits = await response.json(); // 응답 본문을 읽고 JSON 형태로 파싱함
+
+                    let text = commits['text'];
+                    let image_url = commits['image'];
+                    console.log(text, image_url);
+                    document.getElementById("imagename").innerHTML = text+" is at the doorway";
+                    document.getElementById("imageid").src=image_url;
+                }
             }
         </script>
     </head>
@@ -80,13 +93,9 @@
             <input type="checkbox" id="led2" onclick="publish('state2text', 'myled2')" />
             <span id="state2text">OFF</span>
         </label>
-<<<<<<< HEAD
-        <h1>
-            JENNY is at the doorway
+        <h1 id="imagename">
         </h1>
-        <img src="https://ultraman.run.goorm.io/media/jenny.png">
-=======
->>>>>>> 8d247b4379e84b1c02d7eaa90b582b084eccd4d7
+        <img src="https://ultraman.run.goorm.io/media/black.png" id="imageid">
         <script>
             function publish(x, topic) {
                 if (!client) {

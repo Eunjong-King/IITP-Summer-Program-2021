@@ -7,6 +7,9 @@ class Data(models.Model):
     
     time = models.DateTimeField(auto_now_add=True)
     
+    class Meta:
+        ordering = ['-pk']
+    
     def __str__(self):
         return f'{self.device}::{self.value}'
     
@@ -18,3 +21,10 @@ class Device(models.Model):
     
     def __str__(self):
         return f'{self.device1}|{self.device2}|{self.device3}|{self.device4}'
+
+class Image(models.Model):
+    text = models.CharField(max_length=255)
+    image = models.ImageField(default='media/default_image.jpeg')
+    
+    class Meta:
+        ordering = ['-pk']

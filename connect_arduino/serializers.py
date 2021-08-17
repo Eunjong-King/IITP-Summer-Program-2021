@@ -1,5 +1,5 @@
-from rest_framework.serializers import ModelSerializer
-from .models import Data, Device
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
+from .models import Data, Device, Image
 
 class DataSerializer(ModelSerializer):
     class Meta:
@@ -10,3 +10,8 @@ class DeviceSerializer(ModelSerializer):
     class Meta:
         model = Device
         fields = ['device1', 'device2', 'device3', 'device4']
+        
+class ImageSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = Image
+        fields = ('text', 'image')

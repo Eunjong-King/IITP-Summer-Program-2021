@@ -1,7 +1,7 @@
-from .models import Data, Device
+from .models import Data, Device, Image
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.mixins import UpdateModelMixin
-from .serializers import DataSerializer, DeviceSerializer
+from .serializers import DataSerializer, DeviceSerializer, ImageSerializer
 from .filter import DataFilter
 from rest_framework.response import Response
 from rest_framework import status
@@ -47,3 +47,7 @@ class DeviceViewSet(ModelViewSet):
             instance._prefetched_objects_cache = {}
             
         return Response(serializer.data, status=r.status_code)
+    
+class ImageViewSet(ModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
