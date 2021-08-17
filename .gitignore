@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# option
+.temp
+migrations/
+__pycache__/
+nohup.out
