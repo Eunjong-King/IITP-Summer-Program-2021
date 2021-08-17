@@ -1,2 +1,0 @@
-cmd 명령어
-mosquitto_pub -h test.mosquitto.org -t myled1 -m "TurnON"
