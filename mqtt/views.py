@@ -28,4 +28,3 @@ def image(request):
         return render(request, 'chart.html')
     else:
         return render(request, 'chart.html')
-        

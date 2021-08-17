@@ -10,8 +10,8 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
         ></script>
         <script>
-            var hostname = '143.198.112.40';
-            var port = 8883;
+            var hostname = 'test.mosquitto.org';
+            var port = 8081;
             var ClientID = 'whatiwanttomakeClientID_' + parseInt(Math.random() * 100);
             var client = new Paho.MQTT.Client(hostname, Number(port), ClientID);
 
@@ -80,10 +80,13 @@
             <input type="checkbox" id="led2" onclick="publish('state2text', 'myled2')" />
             <span id="state2text">OFF</span>
         </label>
+<<<<<<< HEAD
         <h1>
             JENNY is at the doorway
         </h1>
         <img src="https://ultraman.run.goorm.io/media/jenny.png">
+=======
+>>>>>>> 8d247b4379e84b1c02d7eaa90b582b084eccd4d7
         <script>
             function publish(x, topic) {
                 if (!client) {

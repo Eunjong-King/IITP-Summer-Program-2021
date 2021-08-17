@@ -18,4 +18,3 @@ class Device(models.Model):
     
     def __str__(self):
         return f'{self.device1}|{self.device2}|{self.device3}|{self.device4}'
-    
